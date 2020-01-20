@@ -42,3 +42,48 @@ gsap.fromTo(
     { y: 100, opacity: 0 },
     { y: 20, opacity: 1, duration: 0.6, delay: 1.1, ease: "back.out" }
 );
+
+// FOUR COLUMN SECTION
+$(".fourColItem").hover(
+    function() {
+        //$(this) selects only the fourColItem hovered over, NOT ALL fourColItem
+        gsap.to($(this), { y: -10, scale: 1.03, duration: 0.5 });
+        gsap.to($(this), {
+            boxShadow: "0 0 20px rgba(0,0,0,0.36)",
+            duration: 0.5
+        });
+    },
+    function() {
+        gsap.to($(this), { y: 0, scale: 1, duration: 0.5 });
+        gsap.to($(this), {
+            boxShadow: "0 0 20px rgba(0,0,0,0.06)",
+            duration: 0.5
+        });
+    }
+);
+
+// SERVICES SECTION
+gsap.set(".serviceBoxInner", { y: 200, opacity: 0 });
+
+$(".serviceBox").hover(
+    function() {
+        gsap.to($(this).find(".serviceBoxInner"), {
+            y: 0,
+            opacity: 1,
+            ease: "power2.out",
+            duration: 0.5
+        });
+    },
+    function() {
+        gsap.to($(this).find(".serviceBoxInner"), {
+            y: 200,
+            opacity: 0,
+            ease: "power2.out",
+            duration: 0.5
+        });
+    }
+);
+
+// COG SECTION
+gsap.to(".cogLeft", { rotation: 360, ease: "none", repeat: -1, duration: 8 });
+gsap.to(".cogRight", { rotation: -360, ease: "none", repeat: -1, duration: 8 });
